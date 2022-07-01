@@ -1,4 +1,4 @@
-# Ultrasonico
+# Ultrasónico
 
 
 Alumno: Juan Ignacio Torres
