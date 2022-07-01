@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 15.22,
+      "left": 48.59,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -108.38,
+      "left": -51.98,
+      "attrs": { "distance": "80" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 33.88,
+      "left": -128.25,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 62.34,
+      "left": -76.85,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 139.17,
+      "left": -85.25,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 108.77,
+      "left": -36.29,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 136.75,
+      "left": -47.08,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 164.24,
+      "left": -48.07,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:TRIG", "pico:GP27", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "pico:GP26", "green", [ "v0" ] ],
+    [ "led1:C", "pico:GND.4", "red", [ "v0" ] ],
+    [ "led2:C", "pico:GND.4", "green", [ "v0" ] ],
+    [ "led3:C", "pico:GND.4", "gold", [ "v0" ] ],
+    [ "led2:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "pico:GP12", "green", [ "v0" ] ],
+    [ "pico:GP10", "r2:2", "red", [ "h0" ] ],
+    [ "led1:A", "r2:1", "red", [ "v0" ] ],
+    [ "r3:2", "pico:GP14", "gold", [ "v0" ] ],
+    [ "r3:1", "led3:A", "gold", [ "v0" ] ]
+  ]
+}
